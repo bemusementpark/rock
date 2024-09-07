@@ -1,10 +1,13 @@
-/** @type import('hardhat/config').HardhatUserConfig */
+require("@nomiclabs/hardhat-ethers");
+
 module.exports = {
   solidity: "0.8.20",
-
-  // TODO: configure rskMainnet network settings
-  // TODO: configure rskMainnet private key
-  // TODO: configure rskTestnet network settings
-  // TODO: configure rskTestnet private key
-  
+  networks: {
+    rskTestnet: {
+      url: "https://public-node.testnet.rsk.co",
+      accounts: [`0x{env.PRIVATE_KEY}`], // Use your private key
+      chainId: 31,
+      gasPrice: 1000000000
+    }
+  }
 };
